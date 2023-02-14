@@ -1,0 +1,226 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+html,
+body {
+  height: 100%;
+}
+html {
+  font-size: 62.5%;
+}
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+:root {
+  --color-Very-dark-desaturated-blue: hsl(238, 29%, 16%);
+  --color-Soft-red: hsl(14, 88%, 65%);
+  --color-Soft-violet: hsl(273, 75%, 66%);
+  --color-Soft-blue: hsl(240, 73%, 65%);
+  --color-Very-dark-grayish-blue: hsl(237, 12%, 33%);
+  --color-Dark-grayish-blue: hsl(240, 6%, 50%);
+  --color-Light-grayish-blue: hsl(240, 5%, 91%);
+
+  --fontsize-default: 1.2rem;
+}
+
+main {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  font-family: "Kumbh Sans";
+  font-size: var(--fontsize-default);
+  background: linear-gradient(to bottom, var(--color-Soft-violet), var(--color-Soft-blue));
+  padding: 2rem;
+  font-weight: 400;
+}
+.faq {
+  background-color: #fff;
+  width: 100%;
+  padding: 2rem 2rem 5rem 2rem;
+  position: relative;
+  border-radius: 2.5rem;
+  display: grid;
+  grid-template-rows: 1fr 2.5fr;
+  text-align: center;
+}
+.pictures {
+  width: 28rem;
+  height: 28rem;
+  background: url("../images/illustration-woman-online-mobile.svg"), url("../images/bg-pattern-mobile.svg");
+  background-repeat: no-repeat;
+  background-size: 100%, 100%;
+  background-position: left 0 top 0, left 0 top 13.5rem;
+  position: absolute;
+  top: -15rem;
+  left: 50%;
+  transform: translateX(-50%);
+  grid-row: 1/2;
+  z-index: 2;
+}
+.first-image {
+  width: 30rem;
+  position: absolute;
+  top: -15rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.second-image {
+  position: absolute;
+  width: 30rem;
+  top: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+picture {
+  margin-bottom: 13rem;
+}
+.accordion__item {
+  cursor: pointer;
+}
+.qanda {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+.accordion__answer {
+  text-align: left;
+  width: 95%;
+  animation: slide 1s ease;
+}
+.faq__heading {
+  font-weight: 700;
+  font-size: 4rem;
+  margin-bottom: 3rem;
+  color: var(--color-Very-dark-desaturated-blue);
+}
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 1.5rem;
+  color: var(--color-Dark-grayish-blue);
+  grid-row: 2/-1;
+}
+.divider {
+  border: 1px solid var(--color-Light-grayish-blue);
+}
+.accordion__arrow {
+  width: 10px;
+  height: 7px;
+}
+
+.display-none {
+  display: none;
+}
+.text-bold {
+  color: var(--color-Very-dark-desaturated-blue);
+  font-weight: 700;
+}
+.rotate {
+  transform: rotate(180deg);
+  animation: rotate 1s ease;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+@keyframes slide {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+@media (min-width: 800px) {
+  .faq {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: none;
+    /* overflow: hidden; */
+    max-width: 80rem;
+  }
+  .pictures {
+    grid-column: 1/2;
+    width: 40rem;
+    height: 40rem;
+    background: url("../images/illustration-box-desktop.svg"), url("../images/illustration-woman-online-desktop.svg"),
+      url("../images/bg-pattern-desktop.svg");
+    background-repeat: no-repeat;
+    background-size: 50%, 100%, 100%;
+    background-position: right 25.2rem top 10rem, left 0 top 0, left 0 top 0rem;
+    position: absolute;
+    top: 60%;
+    left: -10rem;
+    transform: translateY(-50%);
+  }
+  .accordion {
+    grid-column: 2/-1;
+  }
+  .faq__heading {
+    text-align: left;
+    margin: 0;
+  }
+}
